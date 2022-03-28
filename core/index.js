@@ -21,5 +21,5 @@ app.get('/', async (req, res) => {
 
 //checking the server's work
 app.listen(PORT, () => {
-    console.log(`listen to port ${PORT}`)
+    console.log(`listen to port ${PORT} \n\nhttp://localhost:3001/`)
 })
