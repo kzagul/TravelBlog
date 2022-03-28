@@ -1,0 +1,35 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>381</x><y>128</y><w>270</w><h>160</h></coordinates><panel_attributes>Excursion
+-
+ID - primary key
+-
+Name : string
+location : string
+duration : string
+typeExcursion : TypeOfExcursion External key
+typeVisiting : TypeOfVisiting External key
+discription : string
+image: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>731</x><y>0</y><w>150</w><h>150</h></coordinates><panel_attributes>User
+-
+ID : int Primary key
+arrayVisited
+arrayWishList</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>351</x><y>350</y><w>150</w><h>160</h></coordinates><panel_attributes>TypeOfExcursion
+-
+-индивидуальная 
+-групповая</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>541</x><y>350</y><w>150</w><h>160</h></coordinates><panel_attributes>TypeOfVisiting
+-
+-пешая
+-автобус
+-самокаты
+-на карете
+-на судне
+-на вертолете
+-вверхом на животных</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>751</x><y>250</y><w>150</w><h>150</h></coordinates><panel_attributes>Wishlist
+-
+id_user : int Primary key</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>921</x><y>250</y><w>150</w><h>150</h></coordinates><panel_attributes>Visited
+-
+id_user : int Primary key
+(rating)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>871</x><y>100</y><w>130</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10;110;150</additional_attributes></element><element><id>Relation</id><coordinates><x>831</x><y>140</y><w>30</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>621</x><y>0</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>571</x><y>280</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>421</x><y>280</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>401</x><y>0</y><w>230</w><h>80</h></coordinates><panel_attributes>Site
+-
+id
+id_session : User (id) External key
+excursionTable : Excursion External key</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>70</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element></diagram>
