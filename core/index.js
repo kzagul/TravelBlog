@@ -8,6 +8,9 @@ const cors = require('cors')
 //app object
 const app = express()
 
+//db
+const db = require('./DBConnection')
+
 //port for localhost
 const PORT = 3001
 

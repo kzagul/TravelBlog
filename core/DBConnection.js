@@ -10,6 +10,7 @@ const pool = new Pool({
     database: process.env.DB_DATABASE
 })
 
+//console => checking connection
 module.exports = {
     async query(text, params){
         const start = Date.now()
