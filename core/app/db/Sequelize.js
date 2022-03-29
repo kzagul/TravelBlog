@@ -14,6 +14,8 @@ const db = new Sequelize('travelblog', 'kirillzagul', 'vbrjkf', {
     }
 });
 
+module.exports = db
+
 db.authenticate()
     .then(() => console.log("DataBase connected..."))
     .catch(err => console.log("Error: " + err))

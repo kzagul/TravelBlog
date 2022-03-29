@@ -4,11 +4,15 @@ const { Pool } = require('pg')
 const bodyParser = require("body-parser");
 const cors = require('cors')
 
+//db
+const db = require('./app/db/Sequelize')
+
+//routes
+const typeofexcursion = require('./app/routes/typeofexcursion.routes')
+
 //app object
 const app = express()
 
-//db
-const db = require('./app/db/Sequelize')
 
 //port for localhost
 const PORT = 3001
@@ -16,6 +20,10 @@ const PORT = 3001
 app.get('/', async (req, res) => {
     res.send("Heoo")
 })
+
+app.use('/api', typeofexcursion)
+
+
 
 //checking the server's work
 app.listen(PORT, () => {
