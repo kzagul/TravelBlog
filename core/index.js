@@ -1,15 +1,14 @@
 //packages
 const express = require('express')
 const { Pool } = require('pg')
-
-//cors
+const bodyParser = require("body-parser");
 const cors = require('cors')
 
 //app object
 const app = express()
 
 //db
-const db = require('./DBConnection')
+const db = require('./app/db/DBConnection')
 
 //port for localhost
 const PORT = 3001
