@@ -8,7 +8,7 @@ const cors = require('cors')
 const app = express()
 
 //db
-const db = require('./app/db/DBConnection')
+const db = require('./app/db/Sequelize')
 
 //port for localhost
 const PORT = 3001
@@ -16,7 +16,6 @@ const PORT = 3001
 app.get('/', async (req, res) => {
     res.send("Heoo")
 })
-
 
 //checking the server's work
 app.listen(PORT, () => {
