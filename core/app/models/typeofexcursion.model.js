@@ -1,17 +1,29 @@
-const Sequelize = require('sequelize')
-const db = require('../app/db/Sequelize')
+const {Sequelize, Model, DataTypes} = require('sequelize')
+const sequelize = require('../db/Sequelize')
 
-const TypeOfExcursion = db.define('typeofexcursion', {
-    // id: {
-    //     type: Sequelize.INTEGER
-    // },
-    type: {
-        type: Sequelize.STRING
-    }
-});
+class TypeOfExcursion extends Model {}
 
-TypeOfExcursion.sync().then(() => {
-    console.log('table created');
-});
+TypeOfExcursion.init({
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    typeexcursion: DataTypes.STRING,
+}, {
+    sequelize, 
+    modelName: 'typeofexcursion'
+})
 
-module.exports = TypeOfExcursion
+// const TypeOfExcursion = db.define('typeofexcursion', {
+//     // id: {
+//     //     type: Sequelize.INTEGER
+//     // },
+//     type: {
+//         type: Sequelize.STRING
+//     }
+// });
+
+// TypeOfExcursion.sync().then(() => {
+//     console.log('table created');
+// });
+
+module.exports = {
+    TypeOfExcursion,
+}
