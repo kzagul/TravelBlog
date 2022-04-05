@@ -9,22 +9,27 @@ const app = express()
 //db
 const db = require('./app/db/Sequelize')
 //models
-const {TypeOfExcursion} = require('./app/models/typeofexcursion.model')
-//routes
-const typeofexcursion = require('./app/routes/typeofexcursion.routes');
-const { json } = require('body-parser');
+// const {TypeOfExcursion} = require('./app/models/typeofexcursion.model')
+// //routes
+// const typeofexcursion = require('./app/routes/typeofexcursion.routes');
+// const { json } = require('body-parser');
 
 
-const index = () => JSON.stringify(TypeOfExcursion.findAll())
+// const index = () => JSON.stringify(TypeOfExcursion.findAll())
 
 
-const addTypeOfExcursion = async (req) => {
-    const {text} = await json(req)
-    TypeOfExcursion.create({
-        text,
-    })
-}
+// const addTypeOfExcursion = async (req) => {
+//     const {text} = await json(req)
+//     TypeOfExcursion.create({
+//         text,
+//     })
+// }
 
+app.use(cors())
+app.use(express.json())
+
+const TypeOfVisiting = require('./app/routes/typeofvisiting.routes.js')
+app.use('/api', TypeOfVisiting)
 
 
 app.get("/", (req, res) => {

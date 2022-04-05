@@ -1,11 +1,11 @@
-const db = require('../db/Sequelize')
+const db = require('../db/DBConnection.js')
 
 //APIs
 class TypeOfVisitingController {
-    //API GET all locates
+    //API GET all Types of visiting
     async getAll(req, res, next) {
         try {
-            let sql = `SELECT * FROM locate`
+            let sql = `SELECT * FROM typeofvisiting`
             let result = await db.query(sql)
             res.json(result.rows)
         }
@@ -70,4 +70,4 @@ class TypeOfVisitingController {
     // }
 }
 
-module.exports = new LocateController()
+module.exports = new TypeOfVisitingController()
