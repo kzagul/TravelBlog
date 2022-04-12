@@ -40,17 +40,20 @@
     <v-main>
       <HelloWorld/>
     </v-main>
+    <FooterBar />
   </v-app>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import FooterBar from './components/FooterBar.vue';
 
 export default {
   name: 'App',
 
   components: {
     HelloWorld,
+    FooterBar
   },
 
   data: () => ({
