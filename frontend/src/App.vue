@@ -3,18 +3,19 @@
     <!-- <app-nav-bar /> -->
     <img alt="Vue logo" src="./assets/logo.png">
       <h2>Добро пожаловать на портал о Travel-жизни в Тюмени</h2>
-    <!-- <HelloWorld msg="Добро пожаловать на портал о Travel-жизни в Тюмени"/> -->
+    <HelloWorld msg="Добро пожаловать на портал о Travel-жизни в Тюмени"/>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue'
 // import Navbar from '@/components/Navbar.vue'
 
 
 export default {
   name: 'app',
   components: {
+    HelloWorld
   },
 }
 </script>
