@@ -35,7 +35,7 @@
                         </v-list-item>
 
                         <v-list-item>
-                            <router-link to="/directorpage" exact style="text-decoration: none; color: inherit;">
+                            <router-link to="/locatepage" exact style="text-decoration: none; color: inherit;">
                                 <v-list-item-title>
                                     <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
                                         {{ dictsItems[1].title }}
@@ -44,8 +44,8 @@
                             </router-link>
                         </v-list-item>
 
-                         <v-list-item>
-                            <router-link to="/contactspage" exact style="text-decoration: none; color: inherit;">
+                        <v-list-item>
+                            <router-link to="/directorpage" exact style="text-decoration: none; color: inherit;">
                                 <v-list-item-title>
                                     <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
                                         {{ dictsItems[2].title }}
@@ -55,10 +55,20 @@
                         </v-list-item>
 
                          <v-list-item>
-                            <router-link to="/trainerpage" exact style="text-decoration: none; color: inherit;">
+                            <router-link to="/contactspage" exact style="text-decoration: none; color: inherit;">
                                 <v-list-item-title>
                                     <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
                                         {{ dictsItems[3].title }}
+                                    </v-btn>
+                                </v-list-item-title>
+                            </router-link>
+                        </v-list-item>
+
+                         <v-list-item>
+                            <router-link to="/trainerpage" exact style="text-decoration: none; color: inherit;">
+                                <v-list-item-title>
+                                    <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
+                                        {{ dictsItems[4].title }}
                                     </v-btn>
                                 </v-list-item-title>
                             </router-link>
@@ -88,6 +98,10 @@
 export default {
   data: () => ({
     dictsItems: [
+            { 
+                title: "Все экскурсии",
+                route: '/locates'
+            },
             { 
                 title: "Автомобильные",
                 route: '/locates'

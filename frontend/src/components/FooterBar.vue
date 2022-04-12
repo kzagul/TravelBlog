@@ -1,13 +1,11 @@
 <template>
 <div>
 
-  <v-footer padless>
+  <v-footer padless app>
     <v-col
         class="grey darken-3 text-center white--text"
         cols="12"
       >
-
-        <v-divider></v-divider>
 
           {{ new Date().getFullYear() }} — <strong>TravelBlog Tyumen</strong>
     </v-col>

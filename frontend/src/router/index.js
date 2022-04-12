@@ -3,6 +3,11 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+//links
+import HomePage from '../pages/HomePage.vue'
+
+
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -11,8 +16,8 @@ const router = new VueRouter({
     //Home
     {
       path: '/',
-      component: "",
-      // component: Login
+      component: HomePage,
+      
     },
 
   ],
