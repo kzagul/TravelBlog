@@ -7,19 +7,15 @@ Vue.use(VueRouter)
 import HomePage from '../pages/HomePage.vue'
 
 
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-
     //Home
     {
       path: '/',
       component: HomePage,
-      
     },
-
   ],
 })
 
