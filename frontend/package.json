@@ -9,6 +9,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.3",
     "serve-static": "^1.15.0",
     "vue": "^3.2.13"
