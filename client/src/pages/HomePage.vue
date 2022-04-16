@@ -1,11 +1,11 @@
 <template>
 <div >
-  <v-app id="inspire" class="mx-auto " row wrap justify-center spacing-playground pa-12>
+  <v-app id="inspire" class="mx-auto " row wrap justify-center spacing-playground pa-12 xs8>
     <h1>
-        Добро пожаловать на Тюменский Трэвел-Блог
+        Добро пожаловать на портал с AR экскурсиями по Тюмени
     </h1>
     <v-container fluid>
-        <v-layout row wrap justify-center>
+        <v-layout row wrap justify-center align-cente>
             <v-flex xs8>
                 <v-carousel hide-delimiters>
                     <v-carousel-item v-for="(item,i) in items" :key="i"  :src="item.src" >

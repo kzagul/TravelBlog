@@ -63,9 +63,24 @@
                     </template>
 
                 </v-data-table>
+
+                
             </v-col>
 
+
+
         </v-row>
+
+        <div id="button">
+            <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain
+                 @click="download">
+                <v-icon>
+                    mdi-microsoft-excel
+                </v-icon>
+                    Экспорт 
+                </v-btn>
+        </div>
+
 
     </v-container>
     
@@ -73,6 +88,8 @@
 
 <script>
 import axios from 'axios'
+import XLSX from 'xlsx'
+
 
 export default {
     data(){
@@ -82,47 +99,65 @@ export default {
             selectedItemIndex: -1,
             headers: [
                 // {text: "ID", value: "id"},
-                {text: "Адрес", value: "address"},
+                {text: "Полное имя", value: "fullname"},
                 // {text: "Долгота", value: "longitude"},
                 // {text: "Широта", value: "latitude"},
-                {text: "Действия", value: "actions"}
+                {text: "Логин", value: "login"},
+                {text: "Роль", value: "role"}
             ],
 
-            locates: []
+            locates: [],
+
+            workSheetColumnName: [
+                "fullname",
+                "login",
+                "role"
+            ],
+            
+            workSheetName: 'Users',
+
+            filePath: './outputFiles/excel-from-js.xlsx',
+
+             items: [
+          { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
+          { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
+          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
+          { age: 38, first_name: 'Jami', last_name: 'Carney' }
+        ]
+
         }
 
     },
 
     methods: {
-        linkNeated (link) {
-            return link.replace(/\s+/g, '-').toLocaleLowerCase()
+        download : function() {
+            const parsedJson = JSON.stringify(this.items)
+            const data = XLSX.utils.json_to_sheet(parsedJson)
+            const wb = XLSX.utils.book_new()
+            XLSX.utils.book_append_sheet(wb, data, 'data')
+            XLSX.writeFile(wb,'demo.xlsx')
         },
-        closeDelete () {
-            this.dialogDelete = false
-            this.$nextTick(() => {
-                this.selectedItemIndex = -1
-            })
-        },
-        deleteItem (item) {
-            this.selectedItemIndex = this.locates.indexOf(item)
-            this.dialogDelete = true
-        },
-        deleteItemConfirm () {
-            const deleteLocate = this.locates[this.selectedItemIndex]
-            axios
-                .delete(`http://localhost:3000/api/locate/${deleteLocate.id}`)
-                .then(response => {
-                    this.locates.splice(this.selectedItemIndex, 1)
-                    this.closeDelete()
-                    console.log(response.data)
-                })
-                .catch(error => console.log(error))
-        }
+
+
+        // convert () {
+        //     const parsedJson = JSON.stringify(this.locates)
+        //     if (
+        //         !Array.isArray(parsedJson) ||
+        //         !parsedJson.every((p) => typeof p === "object" && p !== null)
+        //     ) {
+        //         return;
+        //     }
+        //     const heading = Object.keys(parsedJson[0]).join(",");
+        //     const body = parsedJson.map((j) => Object.values(j).join(",")).join("n");
+        //     this.csv = `${heading}${body}`;
+
+        //     console.log("fdfdfd")
+        // },
     },
 
     mounted() {
         axios
-            .get('http://localhost:3000/api/locate/')
+           .get('http://localhost:3001/api/userlogins')
             .then(response => {
                 this.locates = response.data
                 console.log(response.data)

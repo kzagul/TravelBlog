@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <v-app v-if="isEntered === false" class="grey lighten-4">
-      <Login />
+      <Registration />
+       <Login />
     </v-app>
     <v-app v-if="isEntered === true" class="grey lighten-4">
       <Navbar />
@@ -17,6 +18,7 @@
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
 import Login from './components/Login.vue'
+import Registration from './components/Registration.vue'
 
 
 export default {
@@ -30,6 +32,7 @@ export default {
   components:{
     Footer,
     Navbar,
+    Registration,
     Login
   },
 

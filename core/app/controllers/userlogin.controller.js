@@ -1,11 +1,24 @@
 const db = require('../db/DBConnection.js')
 
 //APIs
-class TypeOfExcursionController {
-    //API GET all Types of excursions
+class UserLoginController {
+    //API GET all users
     async getAll(req, res, next) {
         try {
-            let sql = `SELECT * FROM typeofexcursion`
+            let sql = `SELECT * FROM userlogin`
+            let result = await db.query(sql)
+            res.json(result.rows)
+        }
+        catch (error){
+            console.error(error)
+            next(error)
+        }
+    }
+
+    //API GET all users admins
+    async getAdmins(req, res, next) {
+        try {
+            let sql = `SELECT * FROM userlogin WHERE role='admin'`
             let result = await db.query(sql)
             res.json(result.rows)
         }
@@ -70,4 +83,4 @@ class TypeOfExcursionController {
     // }
 }
 
-module.exports = new TypeOfExcursionController()
+module.exports = new UserLoginController()

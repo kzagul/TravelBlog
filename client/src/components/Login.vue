@@ -16,6 +16,7 @@
                               name="login"
                               label="Логин"
                               type="text"
+                              v-model="login"
                            ></v-text-field>
                            <v-text-field
                               id="password"
@@ -23,12 +24,13 @@
                               name="password"
                               label="Пароль"
                               type="password"
+                              v-model="password"
                            ></v-text-field>
                         </v-form>
                      </v-card-text>
                      <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn v-model="closeDelete" color="#ECEFF1" to="/">Войти</v-btn>
+                        <v-btn v-on:click="toLogin" v-model="closeDelete" color="#ECEFF1" to="/">Войти</v-btn>
                      </v-card-actions>
                   </v-card>
                </v-flex>
@@ -53,13 +55,15 @@ export default {
 
          isEntered: false,
 
-         admin: {
-            login: "admin",
-            password: "1234"
-         },
+         fullname: "",
+
+         alogin: "",
+         password: "",
+
+         role: "",
 
 
-          users: []
+         admins: []
       }
    },
 
@@ -70,14 +74,38 @@ export default {
     },
 
 
+   //
    mounted() {
         axios
-            .get('http://localhost:3002/api/user/')
+            .get('http://localhost:3001/api/useradmins')
             .then(response => {
-                this.users = response.data
+                this.admins = response.data
                 console.log(response.data)
             })
             .catch(error => console.log(error))
+   },
+
+   methods: {
+      async toLogin() {
+         
+         console.log(this.admins[0].role)
+         console.log(this.login.value)
+      // const { fullname, login, password, role } = this;
+      // const res = await fetch(
+      //   "http://localhost:3001/api/useradmins",
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json"
+      //     },
+      //     body: JSON.stringify({
+            
+      //     })
+      //   }
+      // );
+      // const data = await res.json();
+      // console.log(data);
+      }
    }
     
 

@@ -29,7 +29,13 @@ app.use(cors())
 app.use(express.json())
 
 const TypeOfVisiting = require('./app/routes/typeofvisiting.routes.js')
+const TypeOfExcursion = require('./app/routes/typeofexcursion.routes.js')
+const UserLoginController = require('./app/routes/userlogin.routes')
+
 app.use('/api', TypeOfVisiting)
+app.use('/api', TypeOfExcursion)
+app.use('/api', UserLoginController)
+
 
 
 app.get("/", (req, res) => {
