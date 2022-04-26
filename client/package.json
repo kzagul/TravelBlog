@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "core-js": "^3.8.3",
+    "cors": "^2.8.5",
     "csvjson": "^5.1.0",
     "express": "^4.17.3",
     "path": "^0.12.7",

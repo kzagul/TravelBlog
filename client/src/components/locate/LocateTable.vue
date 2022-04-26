@@ -88,7 +88,7 @@
 
 <script>
 import axios from 'axios'
-import XLSX from 'xlsx'
+// import XLSX from 'xlsx'
 
 
 export default {
@@ -130,13 +130,13 @@ export default {
     },
 
     methods: {
-        download : function() {
-            const parsedJson = JSON.stringify(this.items)
-            const data = XLSX.utils.json_to_sheet(parsedJson)
-            const wb = XLSX.utils.book_new()
-            XLSX.utils.book_append_sheet(wb, data, 'data')
-            XLSX.writeFile(wb,'demo.xlsx')
-        },
+        // download : function() {
+        //     const parsedJson = JSON.stringify(this.items)
+        //     const data = XLSX.utils.json_to_sheet(parsedJson)
+        //     const wb = XLSX.utils.book_new()
+        //     XLSX.utils.book_append_sheet(wb, data, 'data')
+        //     XLSX.writeFile(wb,'demo.xlsx')
+        // },
 
 
         // convert () {

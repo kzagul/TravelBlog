@@ -8,7 +8,7 @@
         <v-col
           v-for="card in cards"
           :key="card.title"
-          :cols="card.flex"
+          :cols=6
           md=4
         >
 
@@ -16,7 +16,7 @@
         <template>
             <v-dialog v-model="showInfo" max-width="500px">
                     <v-card>
-                        <v-card-title class="text-h5">{{card.title}}</v-card-title>
+                        <v-card-title class="text-h5">{{currentCartTitle}}</v-card-title>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
                                 
@@ -60,7 +60,7 @@
                 <v-btn
                     text
                     color="accent-4"
-                    @click="showInfo = true"
+                    @click="showInfoItem(card)"
                 >
                     Подробнее
                 </v-btn>
@@ -86,23 +86,34 @@
 
 
 <script>
-  export default {
-    data(){
-        return {
-            dialog: false,
-            showInfo: false,
-            selectedItemIndex: -1,
+import axios from 'axios'
+
+export default {
+  data(){
+    return {
+      currentCartTitle: '',
+      dialog: false,
+      showInfo: false,
+      selectedItemIndex: -1,
+
+      image: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
+
+      cards2: [
+],
+
 
       cards: [
         { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 6,
             text: "gweuiirgbwelfbewfgbeilgbe" },
         { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6, 
             text: "gweuiirgbwelfbewfgbeilgbe" },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, text: "gweuiirgbwelfbewfgbeilgbe" },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, text: "gweuiirgbwelfbewfgbeilgbe" },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, text: "gweuiirgbwelfbewfgbeilgbe" },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, text: "gweuiirgbwelfbewfgbeilgbe" },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, text: "gweuiirgbwelfbewfgbeilgbe"},
+        { title: 'ar1', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, 
+            text: "gweuiirgbwelfbewfgbeilgbe" },
+        { title: 'eger2', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, 
+            text: "gweuiirgbwelfbewfgbeilgbe" },
+        { title: 'ergferfg3s', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, text: "gweuiirgbwelfbewfgbeilgbe" },
+        { title: 'egerkqrr', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, text: "gweuiirgbwelfbewfgbeilgbe" },
+        { title: 'kmrgeg', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, text: "gweuiirgbwelfbewfgbeilgbe"},
       ],
         }
     },
@@ -110,14 +121,24 @@
     methods: {
         showInfoItem(card) {
             this.selectedItemIndex = this.cards.indexOf(card)
+            this.currentCartTitle = this.cards[this.selectedItemIndex].title
             this.showInfo = true
         },
         closeInfoItem () {
-            this.showInfo = false
             this.$nextTick(() => {
                 this.selectedItemIndex = -1
             })
+            this.showInfo = false
         },
+    },
+    mounted() {
+        axios
+            .get('http://localhost:6060/api/excursions')
+            .then(response => {
+                this.locates = response.data
+                console.log(response.data)
+            })
+            .catch(error => console.log(error))
     }
   }
 </script>

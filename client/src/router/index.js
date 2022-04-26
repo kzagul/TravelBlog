@@ -19,7 +19,7 @@ import LocateEdit from '../pages/locate/LocateEdit.vue'
 import About from '../pages/About.vue'
 
 //Grid
-import GridSystem from '../pages/GridSystem.vue'
+import GridSystem from '../pages/GridSystem2.vue'
 
 Vue.use(VueRouter)
 

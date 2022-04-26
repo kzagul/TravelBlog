@@ -4,50 +4,48 @@ const { Pool } = require('pg')
 const bodyParser = require("body-parser");
 const path = require('path');
 const cors = require('cors')
+
 //app object
 const app = express()
+
 //db
 const db = require('./app/db/Sequelize')
-//models
-// const {TypeOfExcursion} = require('./app/models/typeofexcursion.model')
-// //routes
-// const typeofexcursion = require('./app/routes/typeofexcursion.routes');
-// const { json } = require('body-parser');
-
-
-// const index = () => JSON.stringify(TypeOfExcursion.findAll())
-
-
-// const addTypeOfExcursion = async (req) => {
-//     const {text} = await json(req)
-//     TypeOfExcursion.create({
-//         text,
-//     })
-// }
 
 app.use(cors())
 app.use(express.json())
 
+// routes
 const TypeOfVisiting = require('./app/routes/typeofvisiting.routes.js')
 const TypeOfExcursion = require('./app/routes/typeofexcursion.routes.js')
-const UserLoginController = require('./app/routes/userlogin.routes')
+const UserLogin = require('./app/routes/userlogin.routes')
+const Excursion = require('./app/routes/excursion.routes')
 
 app.use('/api', TypeOfVisiting)
 app.use('/api', TypeOfExcursion)
-app.use('/api', UserLoginController)
+app.use('/api', UserLogin)
+app.use('/api', Excursion)
 
 
 
 app.get("/", (req, res) => {
-    res.json({ message: "Travelblog application" });
+    res.json({ 
+      message: "Travelblog application by K.Zagul, O.Savenko, A.Gushenko",
+      Excursions: {
+        getAll: "http://localhost:3001/api/excursions"
+      },
+      TypesOfVisitings: {
+        getAll:  "http://localhost:3001/api/typevisiting"
+      },
+      TypesOfExcursions: {
+        getAll:  "http://localhost:3001/api/typeexcursion"  
+      }
+    });
   });
-
-
-
 
 //port for localhost
 const PORT = 3001
+
 //checking the server's work
 app.listen(PORT, () => {
-    console.log(`listen to port ${PORT} \n\nhttp://localhost:3001/`)
+    console.log(`port:${PORT} \nhttp://localhost:3001/`)
 })
