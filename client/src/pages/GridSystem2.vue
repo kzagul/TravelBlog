@@ -87,6 +87,12 @@
 
 
     </v-container>
+
+
+
+    <v-btn  class="ma-1" large color="#FFFFFF" plain>
+      Экскурсии
+    </v-btn>
     
 
   </v-card>
@@ -106,7 +112,9 @@ export default {
         showInfo: false,
         selectedItemIndex: -1,
 
-        image: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
+        image2: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
+
+        image: '',
 
         currentIconE: '',
         currentIconv: '',
