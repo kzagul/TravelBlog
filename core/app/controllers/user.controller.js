@@ -1,24 +1,11 @@
 const db = require('../db/DBConnection.js')
 
 //APIs
-class UserLoginController {
-    //API GET all users
+class UserController {
+    //API GET all Types of visiting
     async getAll(req, res, next) {
         try {
-            let sql = `SELECT * FROM userlogin`
-            let result = await db.query(sql)
-            res.json(result.rows)
-        }
-        catch (error){
-            console.error(error)
-            next(error)
-        }
-    }
-
-    //API GET all users admins
-    async getAdmins(req, res, next) {
-        try {
-            let sql = `SELECT * FROM userlogin WHERE role='admin'`
+            let sql = `SELECT * FROM userinfo`
             let result = await db.query(sql)
             res.json(result.rows)
         }
@@ -83,4 +70,4 @@ class UserLoginController {
     // }
 }
 
-module.exports = new UserLoginController()
+module.exports = new UserController()

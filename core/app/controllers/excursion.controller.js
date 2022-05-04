@@ -5,12 +5,13 @@ class ExcursionController {
     //API GET all Types of visiting
     async getAll(req, res, next) {
         try {
-            let sql = `SELECT * 
-                        FROM excursion 
-                        JOIN typeofexcursion 
-                        ON excursion.typeexcursion_id=typeofexcursion.id
-                        JOIN typeofvisiting 
-                        ON excursion.typevisiting_id=typeofvisiting.id;`
+            let sql = 'SELECT * from excursion'
+            // let sql = `SELECT * 
+            //             FROM excursion 
+            //             JOIN typeofexcursion 
+            //             ON excursion.typeexcursion_id = typeofexcursion.id
+            //             JOIN typeofvisiting 
+            //             ON excursion.typevisiting_id = typeofvisiting.id;`
             let result = await db.query(sql)
             res.json(result.rows)
         }

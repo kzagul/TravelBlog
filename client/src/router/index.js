@@ -15,11 +15,14 @@ import LocateEdit from '../pages/locate/LocateEdit.vue'
 // Home
 // import HomePage from '../pages/HomePage.vue'
 
+// Welcome Page
+// import WelcomePage from '../pages/WelcomePage.vue'
+
 //About
 import About from '../pages/About.vue'
 
 //Grid
-import GridSystem from '../pages/GridSystem2.vue'
+// import GridSystem from '../pages/GridSystem2.vue'
 
 Vue.use(VueRouter)
 
@@ -38,7 +41,7 @@ const router = new VueRouter({
     {
       path: '/',
       // component: HomePage,
-      component: GridSystem,
+      component: About,
       // component: Login
     },
 
