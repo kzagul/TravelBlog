@@ -2,7 +2,7 @@
     <v-form v-model="valid">
         <v-container>
             <h2 class="text-center mb-10">
-                Записать новую локацию
+                Записать новую Экскурсию
             </h2>
 
             <v-row>

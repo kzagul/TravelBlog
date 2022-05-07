@@ -20,20 +20,20 @@ class ExcursionController {
             next(error)
         }
     }
-    // //API GET locate by id
-    // async getLocateById(req, res, next){
-    //     try{
-    //         const id = req.params.id
-    //         let sql = `SELECT * FROM locate WHERE id = $1`
-    //         let result = await db.query(sql, [id])
-    //         // res.send(result)
-    //         res.json(result.rows)
-    //     }
-    //     catch (error){
-    //         console.error(error)
-    //         next(error)
-    //     }
-    // }
+    //API GET locate by id
+    async getById(req, res, next){
+        try{
+            const id = req.params.id
+            let sql = `SELECT * FROM excursion WHERE id = $1`
+            let result = await db.query(sql, [id])
+            // res.send(result)
+            res.json(result.rows)
+        }
+        catch (error){
+            console.error(error)
+            next(error)
+        }
+    }
     // //API POST new locate
     // async postLocate(req, res, next){
     //     try{
