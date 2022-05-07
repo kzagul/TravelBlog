@@ -166,7 +166,7 @@ export default {
 
     mounted() {
         axios
-            .get('http://localhost:3001/api/excursions')
+            .get('http://localhost:3002/api/excursions')
             .then(response => {
                 console.log(response.data);
                 this.cards = response.data

@@ -133,7 +133,7 @@ export default {
     },
     mounted() {
         axios
-            .get('http://localhost:6060/api/excursions')
+            .get('http://localhost:3002/api/excursions')
             .then(response => {
                 this.locates = response.data
                 console.log(response.data)
