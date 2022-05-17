@@ -1,5 +1,10 @@
 <template>
     <div>
+         <v-card class="d-flex justify-center mx-auto mb-5">
+            <div>
+            <h2 class="mx-auto mt-2">Типы экскурсий</h2>
+            </div>
+        </v-card>
     <LocateTable />
         <div id="button">
             <router-link :to="'/register-new-locate'" exact style="text-decoration: none; color: inherit;">

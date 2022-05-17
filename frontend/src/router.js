@@ -5,11 +5,11 @@ import Login from './views/Login.vue';
 import Register from './views/Register.vue';
 
 
-//locate
-import LocateDetails from './pages/ItemFromGrid.vue'
-import LocatePage from './pages/locate/LocatePage.vue'
-import LocateRegistration from './pages/locate/LocateRegistration.vue'
-import LocateEdit from './pages/locate/LocateEdit.vue'
+//Excursion
+import ExcursionDetails from './pages/ItemFromGrid.vue'
+import ExcursionPage from './pages/excursion/ExcursionPage.vue'
+import ExcursionRegistration from './pages/excursion/ExcursionRegistration.vue'
+import ExcursionEdit from './pages/excursion/ExcursionEdit.vue'
 
 //type of excursion
 import TypeExcursionPage from './pages/typeexcursion/TExcursionPage.vue'
@@ -66,21 +66,22 @@ export const router = new Router({
 
           //Locate
     {
-      path: '/locatepage', //GET api
-      component: LocatePage,
+      path: '/excursionpage', //GET api
+      component: ExcursionPage,
     },
     {
-      path: '/locatedetails/:id/:name', //GET by id API
-      component: LocateDetails,
+      path: '/excursiondetails/:id/:name', //GET by id API
+      component: ExcursionDetails,
     },
     {
-      path: '/register-new-locate', //POST api
-      component: LocateRegistration,
+      path: '/register-new-excursion', //POST api
+      component: ExcursionRegistration,
     },
     {
-      path: '/edit/:id/:address', //PUT api
-      component: LocateEdit
+      path: '/edit/:id/:name', //PUT api
+      component: ExcursionEdit
     },
+
 
      //type of excursion
      {

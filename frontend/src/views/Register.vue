@@ -9,7 +9,7 @@
       <form name="form" @submit.prevent="handleRegister">
         <div v-if="!successful">
           <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">Имя пользователя</label>
             <input
               v-model="user.username"
               v-validate="'required|min:3|max:20'"
@@ -37,7 +37,7 @@
             >{{errors.first('email')}}</div>
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Пароль</label>
             <input
               v-model="user.password"
               v-validate="'required|min:6|max:40'"
@@ -51,10 +51,17 @@
             >{{errors.first('password')}}</div>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary btn-block">Sign Up</button>
+            <button class="btn btn-dark btn-block">Регистрация</button>
           </div>
         </div>
       </form>
+
+      <router-link class="text-center" to="/" style="text-decoration: none; color: inherit;">
+        <v-btn  class="ma-1" large color="#000000" plain  >
+          <v-icon>mdi-arrow-left</v-icon>
+            Назад
+        </v-btn>
+      </router-link>
 
       <div
         v-if="message"

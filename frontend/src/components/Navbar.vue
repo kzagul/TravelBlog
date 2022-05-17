@@ -5,16 +5,17 @@
       dark
       justify-between
     >
-        <router-link v-if="currentUser" :to="'/'" exact class="d-flex align-center">
+        <router-link  :to="'/'" exact class="d-flex align-center">
             <img src="../assets/Logo.png"  width="110"/>
         </router-link>
            
-        
-
-        <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#FFFFFF" plain>
-                Экскурсии
+    
+        <router-link v-if="currentUser" to="/" exact style="text-decoration: none; color: inherit;">
+            <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#FFFFFF" plain>
+                    Главная
             </v-btn>
-        
+         </router-link>
+            
 
 
         <router-link v-if="currentUser" to="/" exact style="text-decoration: none; color: inherit;">
@@ -33,7 +34,7 @@
 
                     <v-list>
                         <v-list-item>
-                            <router-link to="/locatepage" exact style="text-decoration: none; color: inherit;">
+                            <router-link to="/excursionpage" exact style="text-decoration: none; color: inherit;">
                                 <v-list-item-title>
                                     <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
                                         {{ dictsItems[0].title }}
@@ -66,7 +67,6 @@
                 </v-menu>
             </div>
 
-
       <v-spacer></v-spacer>
 
         <!--  -->
@@ -77,7 +77,7 @@
                 <router-link to="/register" style="text-decoration: none; color: inherit;">
                     <v-btn  class="ma-1" large color="#FFFFFF" plain>
                         <v-icon>mdi-account-plus</v-icon>
-                        Sign Up
+                        Регистрация
                     </v-btn>
                     <!-- <font-awesome-icon icon="user-plus" />Sign Up -->
                 </router-link>
@@ -86,26 +86,24 @@
                    
                     <v-btn  class="ma-1" large color="#FFFFFF" plain  >
                         <v-icon>mdi-login</v-icon>
-                        Login
+                        Войти
                     </v-btn>
                     <!-- <font-awesome-icon icon="sign-in-alt" />Login -->
                 </router-link>
             </div>
 
 
-            <div v-if="currentUser" class="navbar-nav ml-auto">
-                <li class="nav-item">
-                <router-link to="/profile" class="nav-link">
-                    <font-awesome-icon icon="user" />
-                    {{ currentUser.username }}
+            <div v-if="currentUser" class="text-center">
+                <router-link to="/profile" style="text-decoration: none; color: inherit;">
+                    <v-btn  class="ma-1" large color="#FFFFFF" plain>
+                        <v-icon>mdi-account</v-icon>
+                        {{ currentUser.username }}
+                    </v-btn>
                 </router-link>
-                </li>
-                <li class="nav-item">
-
-                <a class="nav-link" href @click.prevent="logOut">
-                    <font-awesome-icon icon="sign-out-alt" />LogOut
-                </a>
-                </li>
+                <v-btn  class="ma-1" large color="#FFFFFF" plain href @click.prevent="logOut">
+                    <v-icon>mdi-logout</v-icon>
+                     Выйти
+                </v-btn>
             </div>
         
 

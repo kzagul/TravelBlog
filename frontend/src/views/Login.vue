@@ -8,7 +8,7 @@
       />
       <form name="form" @submit.prevent="handleLogin">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Имя пользователя</label>
           <input
             v-model="user.username"
             v-validate="'required'"
@@ -23,7 +23,7 @@
           >Username is required!</div>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Пароль</label>
           <input
             v-model="user.password"
             v-validate="'required'"
@@ -38,15 +38,23 @@
           >Password is required!</div>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block" :disabled="loading">
+          <button class="btn btn-dark btn-block" :disabled="loading">
             <span v-show="loading" class="spinner-border spinner-border-sm"></span>
-            <span>Login</span>
+            <span>Войти</span>
           </button>
         </div>
         <div class="form-group">
           <div v-if="message" class="alert alert-danger" role="alert">{{message}}</div>
         </div>
       </form>
+
+      <router-link class="text-center" to="/" style="text-decoration: none; color: inherit;">
+        <v-btn  class="ma-1" large color="#000000" plain  >
+          <v-icon>mdi-arrow-left</v-icon>
+            Назад
+        </v-btn>
+      </router-link>
+
     </div>
   </div>
 </template>

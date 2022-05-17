@@ -1,7 +1,8 @@
 <template>
   <v-app>
-    <div v-if="currentUser " class="nav-item">
+    
         <Navbar />
+        <div v-if="currentUser " class="nav-item">
      </div>
         <v-main>
           <router-view></router-view>

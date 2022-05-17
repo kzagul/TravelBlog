@@ -38,7 +38,7 @@
 
                     
                     <template v-slot:[`item.name`] = "{ item }">
-                        <router-link :to="`/locatedetails/${item.id}/${linkNeated(item.name)}`" >
+                        <router-link :to="`/excursiondetails/${item.id}/${linkNeated(item.name)}`" >
                             {{item.name}}
                         </router-link>
                     </template>

@@ -1,6 +1,11 @@
 <template>
     <div>
-    <LocateTable />
+        <v-card class="d-flex justify-center mx-auto mb-5">
+            <div>
+            <h2 class="mx-auto mt-2">Экскурсии</h2>
+            </div>
+        </v-card>
+        <ExcursionTable />
         <div id="button">
             <router-link :to="'/register-new-locate'" exact style="text-decoration: none; color: inherit;">
                 <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
@@ -23,12 +28,12 @@
 </template>
 
 <script>
-import LocateTable from '../../components/locate/LocateTable.vue'
+import ExcursionTable from '../../components/excursion/ExcursionTable.vue'
 
 export default {
     name: 'Home',
     components: {
-        LocateTable,
+        ExcursionTable,
     }
 }
 </script>

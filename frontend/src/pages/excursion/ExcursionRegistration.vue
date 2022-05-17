@@ -1,16 +1,16 @@
 <template>
     <div>
-        <LocateForm/>
+        <ExcursionForm/>
     </div>
 </template>
 
 <script>
 // import LocateForm from '../../components/locate/LocateForm.vue'
-import LocateForm from '../../components/locate/LocateRegistrationForm.vue'
+import ExcursionForm from '../../components/excursion/ExcursionRegistrationForm.vue'
 
 export default {
     components: {
-        LocateForm
+        ExcursionForm
     }
 }
 </script>

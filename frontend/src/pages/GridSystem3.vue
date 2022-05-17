@@ -33,7 +33,7 @@
                 <v-spacer></v-spacer>
 
                 <!-- iconsTypeExcursion[cart.typeexcursion_id - 1] -->
-             <router-link :to="`/locatedetails/${card.id}/${linkNeated(card.name)}`" exact style="text-decoration: none; color: inherit;">
+             <router-link :to="`/excursiondetails/${card.id}/${linkNeated(card.name)}`" exact style="text-decoration: none; color: inherit;">
                 <v-btn
                     text
                     color="accent-4"
