@@ -14,6 +14,16 @@ import ExcursionEdit from './pages/excursion/ExcursionEdit.vue'
 
 //type of excursion
 import TypeExcursionPage from './pages/typeexcursion/TExcursionPage.vue'
+import TExcursionDetails from './pages/typeexcursion/TExcursionDetails.vue'
+import TExcursionEdit from './pages/typeexcursion/TExcursionEdit.vue'
+import TExcursionRegistration from './pages/typeexcursion/TExcursionRegistration.vue'
+
+//type of visiting
+// import TypeExcursionPage from './pages/typeexcursion/TExcursionPage.vue'
+// import TExcursionDetails from './pages/typeexcursion/TExcursionDetails.vue'
+// import ExcursionEdit from './pages/excursion/ExcursionEdit.vue'
+// import ExcursionRegistration from './pages/excursion/ExcursionRegistration.vue'
+
 
 // Home
 // import HomePage from './pages/HomePage.vue'
@@ -82,12 +92,24 @@ export const router = new Router({
       component: ExcursionEdit
     },
 
-
      //type of excursion
-     {
+    {
       path: '/typeofexcursions', //GET api
       component: TypeExcursionPage,
     },
+    {
+      path: '/typeofexcursionsdetails/:id/:typeexcursion', //GET by id API
+      component: TExcursionDetails,
+    },
+    {
+      path: '/register-new-excursion-type', //GET api
+      component: TExcursionRegistration,
+    },
+    {
+      path: '/typeofexcursionedit/:id/:name', //PUT api
+      component: TExcursionEdit
+    },
+
 
 
 

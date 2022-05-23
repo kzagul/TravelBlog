@@ -6,5 +6,14 @@ const TypeOfExcursionController = require('../controllers/typeofexcursion.contro
 //GET 
 router.get('/typeexcursion', TypeOfExcursionController.getAll)
 
+router.get('/typeexcursion/:id', TypeOfExcursionController.getById)
+
+//POST
+router.post('/typeexcursion', TypeOfExcursionController.post)
+//PUT
+router.put('/typeexcursion/:id', TypeOfExcursionController.put)
+//DELETE
+router.delete('/typeexcursion/:id', TypeOfExcursionController.delete)
+
 module.exports = router
 

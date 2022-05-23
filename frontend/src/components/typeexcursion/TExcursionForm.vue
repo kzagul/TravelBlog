@@ -2,52 +2,40 @@
     <v-form v-model="valid">
         <v-container v-if="excursions">
             <h2 class="text-center mb-10" v-if="registration">
-                Записать новую экскурсию
+                Записать новый тип экскурсии
             </h2>
             <h2 class="text-center mb-10" v-if="edit">
-                Изменить данные экскурсии
+                Изменить данные типа экскурсии
             </h2>
 
             <v-row>
                 <v-col cols="8 ml-auto mr-auto" >
-                    <v-text-field v-model="editedItem.name" label="Название" :rules="addressRules">
+                    <v-text-field v-model="editedItem.typeexcursion" label="Тип" :rules="addressRules">
                     </v-text-field>
                 </v-col>
-
-                <v-col cols="8 ml-auto mr-auto" >
-                    <v-text-field v-model="editedItem.location" label="Локация" :rules="addressRules">
-                    </v-text-field>
-                </v-col>
-
-                <v-col cols="8 ml-auto mr-auto" >
-                    <v-text-field v-model="editedItem.duration" label="Продолжительность" :rules="addressRules">
-                    </v-text-field>
-                </v-col>
-
-                
             </v-row>
             
             <v-dialog v-model="dialog" width="50%">
                 <v-card>
                     <v-card-title>
                         <p v-if="success && registration">
-                            Новая экскурсия успешно добавлена!
+                            Новый тип экскурсии успешно добавлен!
                         </p>
                         <p v-if="!success && registration">
-                            Ошибка: новая экскурсия не была добавлена!
+                            Ошибка: новый тип экскурсии не был добавлен!
                         </p>
                         <p v-if="success && edit">
-                            Данные экскурсии успешно изменены!
+                            Данные типа экскурсии успешно изменены!
                         </p>
                         <p v-if="!success && edit">
-                           Ошибка: данные экскурсии не были изменены!
+                           Ошибка: данные типа экскурсии не были изменены!
                         </p>
                     </v-card-title>
 
                     <v-card-actions>
                         <v-btn v-if="edit" @click.stop="dialog = !dialog" class="ma-1" large color="#000000" plain>Продолжить изменение</v-btn>
                         <v-spacer></v-spacer>
-                            <router-link to="/excursionpage" style="text-decoration: none">
+                            <router-link to="/typeofexcursions" style="text-decoration: none">
                                 <v-btn @click.stop="dialog = false" v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
                                     Подтвердить
                                 </v-btn>
@@ -94,9 +82,9 @@ export default {
             excursions: null,
             dialog: false,
             editedItem: {
-                name: "",
-                location: "",
-                duration: "",
+                address: "",
+                longitude: "",
+                latitude: "",
             },
             isOperationSuccess: false,
             valid: false,
@@ -125,7 +113,7 @@ export default {
             if(this.registration){
                 axios({
                     method: "post",
-                    url: "http://localhost:3002/api/excursions_default/",
+                    url: "http://localhost:3002/api/typeexcursion",
                     data: this.editedItem,
                     })
                 .then(response => {
@@ -144,7 +132,7 @@ export default {
                 const id = this.$route.params.id
                 axios({
                     method: "put",
-                    url: `http://localhost:3002/api/excursions/${id}`,
+                    url: `http://localhost:3002/api/typeexcursion/${id}`,
                     data: this.editedItem,
                 })
                 .then(response => {
@@ -164,7 +152,7 @@ export default {
     created(){
         if(this.edit) {
             axios
-                .get(`http://localhost:3002/api/excursions/${this.$route.params.id}`)
+                .get(`http://localhost:3002/api/typeexcursion/${this.$route.params.id}`)
                 .then(response => {
                     this.excursions = response.data[0]
                     this.editedItem = this.excursions

@@ -38,13 +38,13 @@
 
                     
                     <template v-slot:[`item.typeexcursion`] = "{ item }">
-                        <router-link :to="`/locatedetails/${item.id}/${linkNeated(item.typeexcursion)}`" >
+                        <router-link :to="`/typeofexcursionsdetails/${item.id}/${linkNeated(item.typeexcursion)}`" >
                             {{item.typeexcursion}}
                         </router-link>
                     </template>
 
                     <template v-slot:[`item.actions`]="{ item }">
-                       <router-link :to="`/edit/${item.id}/${linkNeated(item.typeexcursion)}`" style="text-decoration: none; color: inherit;">
+                       <router-link :to="`/typeofexcursionedit/${item.id}/${linkNeated(item.typeexcursion)}`" style="text-decoration: none; color: inherit;">
                             <v-icon
                                 small
                                 class="mr-2"
@@ -131,15 +131,15 @@ methods: {
             })
         },
         deleteItem (item) {
-            this.selectedItemIndex = this.locates.indexOf(item)
+            this.selectedItemIndex = this.excursions.indexOf(item)
             this.dialogDelete = true
         },
         deleteItemConfirm () {
-            const deleteLocate = this.locates[this.selectedItemIndex]
+            const deleteLocate = this.excursions[this.selectedItemIndex]
             axios
-                .delete(`http://localhost:3000/api/locate/${deleteLocate.id}`)
+                .delete(`http://localhost:3002/api/typeexcursion/${deleteLocate.id}`)
                 .then(response => {
-                    this.locates.splice(this.selectedItemIndex, 1)
+                    this.excursions.splice(this.selectedItemIndex, 1)
                     this.closeDelete()
                     console.log(response.data)
                 })

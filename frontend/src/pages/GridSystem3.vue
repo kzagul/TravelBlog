@@ -1,10 +1,12 @@
 <template>
-    <v-container  class="mx-auto mt-5" max-width="900">
-       <v-card class="d-flex justify-center mx-auto mb-5 " max-width="500">
-        <div>
-         <h1>Экскурсии от TravelBlog Tyumen</h1>
-        </div>
-      </v-card>
+    <v-container  class="mx-auto mt-2" max-width="900">
+       <v-card 
+        class="grey lighten-2 grey--text text--darken-3 flex justify-center mx-auto px-7" max-width="650" >
+          <div class="text-center pt-3">
+             <h2 class="py-auto">Экскурсии от TravelBlog Tyumen</h2>
+          </div>
+          <v-divider></v-divider>
+        </v-card>
 
       <v-row dense >
         <v-col v-for="card in cards" :key="card.id" :cols=6 md=4>
