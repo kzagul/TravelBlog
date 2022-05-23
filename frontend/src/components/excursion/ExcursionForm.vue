@@ -1,29 +1,26 @@
 <template>
     <v-form v-model="valid">
-        <v-container v-if="locate">
+        <v-container v-if="excursions">
             <h2 class="text-center mb-10" v-if="registration">
-                Записать новую локацию
+                Записать новую экскурсию
             </h2>
             <h2 class="text-center mb-10" v-if="edit">
-                Изменить данные локации
+                Изменить данные экскурсию
             </h2>
 
             <v-row>
-                <!-- address label -->
                 <v-col cols="8 ml-auto mr-auto" >
-                    <v-text-field v-model="editedItem.address" label="Адрес" :rules="addressRules">
+                    <v-text-field v-model="editedItem.name" label="Название" :rules="addressRules">
                     </v-text-field>
                 </v-col>
 
-                <!-- longitude label -->
                 <v-col cols="8 ml-auto mr-auto" >
-                    <v-text-field v-model="editedItem.longitude" label="Долгота" :rules="coordinatesRules">
+                    <v-text-field v-model="editedItem.location" label="Локация" :rules="addressRules">
                     </v-text-field>
                 </v-col>
 
-                <!-- latitude label -->
                 <v-col cols="8 ml-auto mr-auto" >
-                    <v-text-field v-model="editedItem.latitude" label="Широта" :rules="coordinatesRules">
+                    <v-text-field v-model="editedItem.duration" label="Продолжительность" :rules="addressRules">
                     </v-text-field>
                 </v-col>
 
@@ -34,23 +31,23 @@
                 <v-card>
                     <v-card-title>
                         <p v-if="success && registration">
-                            Новая локация успешно добавлена!
+                            Новая экскурсия успешно добавлена!
                         </p>
                         <p v-if="!success && registration">
-                            Ошибка: новая локация не была добавлена!
+                            Ошибка: новая экскурсия не была добавлена!
                         </p>
                         <p v-if="success && edit">
-                            Данные локации успешно изменены!
+                            Данные экскурсии успешно изменены!
                         </p>
                         <p v-if="!success && edit">
-                           Ошибка: данные локации не были изменены!
+                           Ошибка: данные экскурсии не были изменены!
                         </p>
                     </v-card-title>
 
                     <v-card-actions>
                         <v-btn v-if="edit" @click.stop="dialog = !dialog" class="ma-1" large color="#000000" plain>Продолжить изменение</v-btn>
                         <v-spacer></v-spacer>
-                            <router-link to="/locatepage" style="text-decoration: none">
+                            <router-link to="/excursionpage" style="text-decoration: none">
                                 <v-btn @click.stop="dialog = false" v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
                                     Подтвердить
                                 </v-btn>
@@ -94,12 +91,12 @@ export default {
 
     data() {
         return {
-            locate: null,
+            excursions: null,
             dialog: false,
             editedItem: {
-                address: "",
-                longitude: "",
-                latitude: "",
+                name: "",
+                location: "",
+                duration: "",
             },
             isOperationSuccess: false,
             valid: false,
@@ -128,7 +125,7 @@ export default {
             if(this.registration){
                 axios({
                     method: "post",
-                    url: "http://localhost:3000/api/locate/",
+                    url: "http://localhost:3002/api/excursions_default/",
                     data: this.editedItem,
                     })
                 .then(response => {
@@ -147,7 +144,7 @@ export default {
                 const id = this.$route.params.id
                 axios({
                     method: "put",
-                    url: `http://localhost:3000/api/locate/${id}`,
+                    url: `http://localhost:3002/api/excursions_default/${id}`,
                     data: this.editedItem,
                 })
                 .then(response => {
@@ -167,10 +164,10 @@ export default {
     created(){
         if(this.edit) {
             axios
-                .get(`http://localhost:3000/api/locate/${this.$route.params.id}`)
+                .get(`http://localhost:3002/api/excursions_default/${this.$route.params.id}`)
                 .then(response => {
-                    this.locate = response.data[0]
-                    this.editedItem = this.locate
+                    this.excursions = response.data[0]
+                    this.editedItem = this.excursions
                 })
                 .catch(error => console.log(error))
         }

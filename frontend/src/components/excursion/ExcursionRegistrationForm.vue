@@ -8,33 +8,32 @@
             <v-row>
                 <!-- address label -->
                 <v-col cols="8 ml-auto mr-auto" >
-                    <v-text-field v-model="editedItem.address" label="Адрес" :rules="addressRules">
+                    <v-text-field v-model="editedItem.name" label="Наименование" :rules="addressRules">
                     </v-text-field>
                 </v-col>
 
                 <!-- longitude label -->
                 <v-col cols="8 ml-auto mr-auto" >
-                    <v-text-field v-model="editedItem.longitude" label="Долгота" :rules="coordinatesRules">
+                    <v-text-field v-model="editedItem.location" label="Локация" :rules="addressRules">
                     </v-text-field>
                 </v-col>
 
                 <!-- latitude label -->
                 <v-col cols="8 ml-auto mr-auto" >
-                    <v-text-field v-model="editedItem.latitude" label="Широта" :rules="coordinatesRules">
+                    <v-text-field v-model="editedItem.duration" label="Продолжительность" :rules="addressRules">
                     </v-text-field>
                 </v-col>
 
-                
             </v-row>
             
             <v-dialog v-model="dialog" width="50%">
                 <v-card>
                     <v-card-title>
                         <p v-if="success">
-                            Новая локация успешно добавлена!
+                            Новая экскурсия успешно добавлена!
                         </p>
                         <p v-if="!success">
-                            Ошибка: новая локация не была добавлена!
+                            Ошибка: новая экскурсия не была добавлена!
                         </p>
 
                     </v-card-title>
@@ -42,7 +41,7 @@
                     <v-card-actions>
                         <v-btn v-if="edit" @click.stop="dialog = !dialog" class="ma-1" large color="#000000" plain>Продолжить изменение</v-btn>
                         <v-spacer></v-spacer>
-                            <router-link to="/locatepage" style="text-decoration: none">
+                            <router-link to="/excursionpage" style="text-decoration: none">
                                 <v-btn @click.stop="dialog = false" v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
                                     Подтвердить
                                 </v-btn>
@@ -77,9 +76,9 @@ export default {
         return {
             dialog: false,
             editedItem: {
-                address: "",
-                longitude: "",
-                latitude: "",
+                name: "",
+                location: "",
+                duration: "",
             },
             isOperationSuccess: false,
             valid: false,
@@ -107,7 +106,7 @@ export default {
         save() {
                 axios({
                     method: "post",
-                    url: "http://localhost:3000/api/locate/",
+                    url: "http://localhost:3002/api/excursions",
                     data: this.editedItem,
                 })
                 .then(response => {

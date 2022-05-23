@@ -18,13 +18,13 @@
             
 
 
-        <router-link v-if="currentUser" to="/" exact style="text-decoration: none; color: inherit;">
+        <router-link v-if="currentUser" to="/excursiongrid" exact style="text-decoration: none; color: inherit;">
             <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#FFFFFF" plain>
                 Экскурсии
             </v-btn>
         </router-link>
 
-      <div class="text-center" v-if="currentUser">
+      <div class="text-center" v-if="currentUser && showAdminBoard">
                 <v-menu offset-y>
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#FFFFFF" plain>

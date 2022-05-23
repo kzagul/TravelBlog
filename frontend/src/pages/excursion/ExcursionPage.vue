@@ -7,7 +7,7 @@
         </v-card>
         <ExcursionTable />
         <div id="button">
-            <router-link :to="'/register-new-locate'" exact style="text-decoration: none; color: inherit;">
+            <router-link :to="'/register-new-excursion'" exact style="text-decoration: none; color: inherit;">
                 <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
                 <v-icon>
                     mdi-plus

@@ -16,6 +16,7 @@
                     :headers = "headers"
                     :items = "excursions"
                     :search = "search"
+                    :items-per-page="5"
                     >
 
                     <!-- Confirm delete -->
@@ -132,15 +133,15 @@ methods: {
             })
         },
         deleteItem (item) {
-            this.selectedItemIndex = this.locates.indexOf(item)
+            this.selectedItemIndex = this.excursions.indexOf(item)
             this.dialogDelete = true
         },
         deleteItemConfirm () {
-            const deleteLocate = this.locates[this.selectedItemIndex]
+            const deleteLocate = this.excursions[this.selectedItemIndex]
             axios
-                .delete(`http://localhost:3000/api/locate/${deleteLocate.id}`)
+                .delete(`http://localhost:3002/api/excursions/${deleteLocate.id}`)
                 .then(response => {
-                    this.locates.splice(this.selectedItemIndex, 1)
+                    this.excursions.splice(this.selectedItemIndex, 1)
                     this.closeDelete()
                     console.log(response.data)
                 })
@@ -159,7 +160,7 @@ methods: {
 
     mounted() {
         axios
-           .get('http://localhost:3002/api/excursions')
+           .get('http://localhost:3002/api/excursions_default')
             .then(response => {
                 this.excursions = response.data
                 console.log(response.data)

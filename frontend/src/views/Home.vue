@@ -2,7 +2,18 @@
   <div class="container" >
 
     <div v-if="currentUser">
-      <GridSystem />
+      <v-card 
+        class="grey lighten-2 grey--text text--darken-3 flex justify-center mx-auto mb-5  px-7" max-width="700" >
+        <!-- <div class="grey darken-2 text-center">
+             <img v-if="!currentUser" src="@/assets/Logo.png" width="auto"/>
+        </div> -->
+          <div class="text-center ">
+            <h1>Добро пожаловать на портал <span><br><b><i> TravelBlog Tyumen</i></b></span></h1>
+          </div>
+          <v-divider></v-divider>
+          </v-card>
+      <CarouselGrid />
+      <!-- <GridSystem /> -->
     </div>
 
     <div v-if="!currentUser">
@@ -47,8 +58,8 @@
 
 <script>
 import UserService from '../services/user.service';
-
-import GridSystem from '../pages/GridSystem3.vue'
+import CarouselGrid from '../components/HomeMain.vue'
+// import GridSystem from '../pages/GridSystem3.vue'
 
 export default {
   name: 'Home',
@@ -58,7 +69,8 @@ export default {
     };
   },
   components: {
-    GridSystem
+    CarouselGrid
+    // GridSystem
   },
   computed: {
     currentUser() {

@@ -6,7 +6,8 @@ import Register from './views/Register.vue';
 
 
 //Excursion
-import ExcursionDetails from './pages/ItemFromGrid.vue'
+import ItemFromGrid from './pages/ItemFromGrid.vue'
+import ExcursionDetails from './pages/excursion/ExcursionDetails'
 import ExcursionPage from './pages/excursion/ExcursionPage.vue'
 import ExcursionRegistration from './pages/excursion/ExcursionRegistration.vue'
 import ExcursionEdit from './pages/excursion/ExcursionEdit.vue'
@@ -37,10 +38,6 @@ export const router = new Router({
       component: Home
     },
     {
-      path: '/',
-      component: Home
-    },
-    {
       path: '/login',
       component: Login
     },
@@ -48,10 +45,9 @@ export const router = new Router({
       path: '/register',
       component: Register
     },
-
-      //Home
+      //grid
       {
-        path: '/',
+        path: '/excursiongrid',
         component: GridSystem,
         // component: About,
         // component: Login
@@ -64,10 +60,14 @@ export const router = new Router({
       },
 
 
-          //Locate
+    //excursion
     {
       path: '/excursionpage', //GET api
       component: ExcursionPage,
+    },
+    {
+      path: '/excursionitemdetails/:id/:name', //GET by id API
+      component: ItemFromGrid,
     },
     {
       path: '/excursiondetails/:id/:name', //GET by id API
