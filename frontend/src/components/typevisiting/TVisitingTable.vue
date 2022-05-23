@@ -99,7 +99,7 @@ export default {
             selectedItemIndex: -1,
             headers: [
                 // {text: "ID", value: "id"},
-                {text: "Тип экскурсии", value: "typeexcursion"},
+                {text: "Тип посещения", value: "typevisiting"},
                 
                 {text: "Действия", value: "actions"}
             ],
@@ -137,7 +137,7 @@ methods: {
         deleteItemConfirm () {
             const deleteLocate = this.locates[this.selectedItemIndex]
             axios
-                .delete(`http://localhost:3000/api/locate/${deleteLocate.id}`)
+                .delete(`http://localhost:3002/api/typevisiting/${deleteLocate.id}`)
                 .then(response => {
                     this.locates.splice(this.selectedItemIndex, 1)
                     this.closeDelete()
@@ -158,7 +158,7 @@ methods: {
 
     mounted() {
         axios
-           .get('http://localhost:3002/api/typeexcursion')
+           .get('http://localhost:3002/api/typevisiting')
             .then(response => {
                 this.excursions = response.data
                 console.log(response.data)

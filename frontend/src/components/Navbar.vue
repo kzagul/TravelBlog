@@ -54,7 +54,7 @@
                         </v-list-item>
 
                         <v-list-item>
-                            <router-link to="/directorpage" exact style="text-decoration: none; color: inherit;">
+                            <router-link to="/typeofvisiting" exact style="text-decoration: none; color: inherit;">
                                 <v-list-item-title>
                                     <v-btn v-bind="attrs" v-on="on" class="ma-1" large color="#000000" plain>
                                         {{ dictsItems[2].title }}
