@@ -19,7 +19,7 @@ import TExcursionEdit from './pages/typeexcursion/TExcursionEdit.vue'
 import TExcursionRegistration from './pages/typeexcursion/TExcursionRegistration.vue'
 
 //type of visiting
-// import TypeExcursionPage from './pages/typeexcursion/TExcursionPage.vue'
+import TypeVisitingPage from './pages/typevisiting/TVisitingPage'
 // import TExcursionDetails from './pages/typeexcursion/TExcursionDetails.vue'
 // import ExcursionEdit from './pages/excursion/ExcursionEdit.vue'
 // import ExcursionRegistration from './pages/excursion/ExcursionRegistration.vue'
@@ -109,6 +109,24 @@ export const router = new Router({
       path: '/typeofexcursionedit/:id/:name', //PUT api
       component: TExcursionEdit
     },
+
+    //type of visiting
+    {
+      path: '/typeofvisiting', //GET api
+      component: TypeVisitingPage,
+    },
+    // {
+    //   path: '/typeofexcursionsdetails/:id/:typeexcursion', //GET by id API
+    //   component: TExcursionDetails,
+    // },
+    // {
+    //   path: '/register-new-excursion-type', //GET api
+    //   component: TExcursionRegistration,
+    // },
+    // {
+    //   path: '/typeofexcursionedit/:id/:name', //PUT api
+    //   component: TExcursionEdit
+    // },
 
 
 
